@@ -11,3 +11,5 @@ html + css + JavaScript + bootstrap + MySQL + express
 4.首页和商品页面的加入购物车到后台
 5.实现页面的串联和js端口的集合
 6.页面排版实现
+
+"项目展示录屏.mp4"为该项目的展示录屏
