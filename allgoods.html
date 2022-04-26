@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>全部商品</title>
+    <link rel="stylesheet" href="public/css/work.css"  type="text/css">    
+    <style type="text/css"></style>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $.get("/showgoods",function(data,status){
+            var goods = JSON.parse(data);
+            for(var i=0; i<goods.length; i++)
+            {
+                var food1 = $("<div></div>").addClass("food1");
+                var img = $("<a href='goods?goodsId=" + goods[i].goodsId + "'>" + '<img width="100%" src="public/img/homepd1.png">' + "</a>");
+                var ftext=$("<p>"+goods[i].goodsName+"</p>").addClass("ftext");
+                var fmoney=$("<p>"+"￥"+goods[i].goodsPrice.toFixed(2) +"</p>").addClass("fmoney");
+                var gdetail=$("<a href='goods?goodsId=" + goods[i].goodsId + "'>" + '<p class="detail">详情了解</p>' + "</a>");
+                var cart=$("<button id= " + goods[i].goodsId + "><img class='pcart' src='public/img/cart.png'><span>加入购物车</span></button>").addClass("cart");
+                food1.append(img,ftext,fmoney,gdetail,cart);
+                $(".food").append(food1);
+                //加购物车
+                var goodsId=goods[i].goodsId;
+                var a="#"+goodsId;
+                $(a).click(function(){
+                    $.post("addcart",
+                    {
+                        id:$(this).attr("id"),
+                        num:1
+                    },
+                    function(data,status){
+                        var result = JSON.parse(data);
+                        if(result.affectedRows > 0)
+                        {
+                            alert('已加入购物车');
+                            location.reload();
+                        }
+                        else
+                        {
+                            alert('加入失败');
+                        }
+                    })
+                })
+            }
+        });
+    });
+    </script> 
+</head>
+<body>
+      <div class="container" height="1700px">
+          <ul class="header">
+            <li class="logo"><a href="/shouye"><img src="public/img/logo1.png"></a></li>
+              <li class="info"><a href="/all">全部商品</a></li>
+              <li class="info"><a href="/zixun">咨询频道</a></li>
+              <li class="info"><a href="/guanyu">关于我们</a></li>
+              <div class="right">
+                <li class="tixing">
+                    <div class="triangle1"></div>
+                    <div class="pic"><a href="/self"><img src="public/img/登录.png"></a></div>
+                    <div class="triangle2"></div>
+                </li>
+                <li class="tixing">
+                    <div class="triangle1"></div>                   
+                    <div class="pic"><a href="/car"><img src="public/img/购物车.png"></a></div>
+                    <div class="triangle2"></div>
+                </li>
+                </div>
+          </ul>
+          <div class="middle">
+              <img class="products" src="public/img/products.png">
+              <p class="all">商品介绍</p>
+              <div class="line"></div>
+              <div class="menu">
+                <p class="menu1"> 全部商品</p>
+                <p class="menu1"> 最新上线</p>
+                <p class="menu1"> 人气套餐</p>
+                <p class="menu1"> 健康素食</p>
+                <p class="menu1"> 低脂零食</p>
+                </div>
+                <div class="food">
+                    
+                </div>
+          </div>
+          <div class="footer">
+            <img src="footer.png">
+            <div class="rfooter">
+                <img class="lfooter" src="public/img/logo1.png">
+            </div>
+          </div>
+      </div>
+</body>
+</html>
+

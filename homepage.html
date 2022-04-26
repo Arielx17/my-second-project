@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Eat Fit！食得健康！</title>
+        <!--下方什么viewport wid啥的一定要添加-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--引入bootstrap-->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="public/css/home.css"></link>
+    </head>
+    <body data-spy="scroll" data-target="#homepagenav">
+        <script>
+
+        </script>
+    <!--导航条-->
+        <nav class="navbar navbar-fault header"  id="homepagenav" role="navigation">
+            <!--container-fluid可以随窗口变化-->
+        <div class="container-fluid">     
+              <ul class="nav navbar-nav  nav-pills"><!--navbar设置nav元素为导航条组件-->
+                <!--navbar-brand——设置导航条组件内的品牌图标 图片太大 位置会走到下面去 所以不添加-->
+                    <li ><a href="/shouye" class="logo"><img src="public\img\logo.png"></a></li>
+                    <li><a href="/all" class="info">全部商品</a></li>
+                    <!--下拉导航栏-->
+                    <li class="dropdown">
+                        <a href="/zixun" class="dropdown-toggle info " data-toggle="dropdown"><!--datatoggle为了表明下拉下面的下拉菜单为了dropdown服务-->
+                           咨询频道
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li ><a href="/zixun">知识科普</a></li>
+                            <li class="divider"></li> <!--下拉菜单分割线-->
+                            <li><a href="/clock">一起来讨论</a></li>
+                        </ul>
+                    </li>
+                          <li><a href="/guanyu" class="info">关于我们</a></li>
+
+                    <!--搜索框-->
+                    <li>
+                        <form  class="navbar-form navbar-right info" style="margin-top:25px;margin-left:80px;" role="search">
+                     <div class="form-group">
+                    <input type="text" placeholder="Search"  class="form-control"/>
+                     <!--button按钮样式-->
+                      <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-search"></span> 
+                      </button>
+                       </form>
+                    </div>
+                    </li>
+                  <!--搜索框-->
+                  <li class="tixing" ><a href="/zhuce" ><img src="public\img\homeregis.png"></a></li>
+                  <li  class="tixing" ><a href="/car" style="margin-left: 0px;"><img src="public\img\homecart.png"></a></li>
+                </ul>
+        </div>
+        <div>   
+            </div>
+        </nav>
+
+
+
+       
+
+    <!--导航条-->    
+    <!--首页banner轮播-->
+    <div id="bannerCarousel" class="carousel slide"><!--carousel是创建一个轮播 slide是一个效果-->
+            <ol class="carousel-indicators">
+                <li data-target="#bannerCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#bannerCarousel" data-slide-to="1"></li>
+                <li data-target="#bannerCarousel" data-slide-to="2"></li>
+            </ol>   
+            <!--这里加需要添加的图片-->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="public\img\1.png" alt="First slide">
+                    <div class="carousel-caption">标题 1</div>
+                </div>
+                <div class="item">
+                    <img src="public\img\2.png" alt="Second slide">
+                    <div class="carousel-caption">标题 2</div>
+                </div>
+                <div class="item">
+                    <img src="public\img\3.png" alt="Third slide">
+                    <div class="carousel-caption">标题 3</div>
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#bannerCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#bannerCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+        </body>
+        </html>
+    <!--首页banner轮播-->
+     </div>
+
+     <!--当季新出-->
+         <div class=" img-responsive center-block newpd" ><img src="public\img\new.png"></div>
+     <!--当季新出-->
+    
+     <!--新出轮播-->
+     <div id="myCarousel" class="carousel slide">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>   
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="public\img\d1.png" alt="First slide">
+                </div>
+                <div class="item">
+                    <img src="public\img\d2.png" alt="Second slide">
+                </div>
+                <div class="item">
+                    <img src="public\img\d3.png" alt="Third slide">
+                </div>
+            </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> 
+     <!--新出轮播-->
+
+    <!--详情了解一下按钮--><!--想让这个按钮居中 尝试了center-block（图片）属性不行  vertical-align: middle也不行 应该是元素和属性不对应的关系-->
+    <!--col-md-offset-4 col-lg-offset-4col-xl-offset-4 这个居中适用于其他元素太好用了吧！！offset是偏移-->
+    <a href="#"><p class="col-md-offset-5 col-lg-offset-4col-xl-offset-4"><button type="button" class="m-auto homebtn btn btn-primary ">详 情 了 解 一 下 ！</button></p></a>
+
+   
+    <HR style="border:10 double #987cb9" width="80%" color=#987cb9 SIZE=3 margin-top=30px;>
+    
+    <!--精选热门-->
+             <div class=" img-responsive center-block newpd" ><img src="public\img\hotpick.png"></div>
+    <!--精选热门-->
+    
+    <!--精选热门pd-->
+    <!--1-->
+        <div class="row ">
+             
+           <div class="col-sm-6 col-md-4">  <a href="#">
+               <img class="center-block" src="public\img\homepd1.png">
+            
+                  <p class="pdfont text-center">紫薯营养粥</p>
+              </a>
+                    
+
+           </div>
+           <div class="col-sm-6 col-md-4 " >
+               <a>
+                    <img class="center-block" src="public\img\homepd2.png">
+                <p class="pdfont text-center">营养粉丝香菇炖鸡味</p>
+               </a>
+               
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <a>
+                      <img class="center-block" src="public\img\homepd3.png">
+                    <p class="pdfont text-center">意式阿拉棒</p>
+                </a>
+                  
+                </div>    
+        </div>
+        <!--2-->
+        <div class="row ">
+             
+                <div class="col-sm-6 col-md-4">  <a href="#">
+                    <img class="center-block" src="public\img\homepd3.png">
+                 
+                       <p class="pdfont text-center">鸡肉味阿拉棒</p>
+                   </a>
+                         
+     
+                </div>
+                <div class="col-sm-6 col-md-4 " >
+                    <a>
+                         <img class="center-block" src="public\img\homepd4.png">
+                     <p class="pdfont text-center">低脂全麦饼干</p>
+                    </a>
+                    
+                 </div>
+                 <div class="col-sm-6 col-md-4">
+                     <a>
+                           <img class="center-block" src="public\img\homepd5.png">
+                         <p class="pdfont text-center">巧克力能量棒</p>
+                     </a>
+                       
+                     </div>    
+             </div>
+    <!--精选热门pd-->
+    <!--回到顶部-->
+    <a class="btn btn-default " href="#" role="button" style="position:fixed;right:0;bottom:0;background: rgb(187,29,57)">
+        <!--BOOTSTRAP自带样式-->
+        <span class="glyphicon glyphicon-chevron-up" style="color:#fff;"></span>
+            </a>
+    <footer>
+            <img src="public\img\footer1.png"></div>
+    </footer>
+    </body>
+</html>
+

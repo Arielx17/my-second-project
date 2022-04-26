@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Eat Fit！食得健康！</title>
+        <!--下方什么viewport wid啥的一定要添加-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--引入bootstrap-->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="public/css/clock.css"></link>
+    </head>
+    <body >
+        <script>
+          $(document).ready(function(){  
+               $("#btn").click(function(){
+                  if($("#name").val()!="" && $("#message").val()!=""){
+                      var box=$("<div></div>");
+                      var n=$("<span></span>").text("昵称："+$("#name").val());
+                      var m=$("<br><br><span></span>").text("留言："+$("#message").val());
+                      var b=$("<br><br><input type='button' value='删除'>");
+                      $("#box1").before(box);
+                      $(box).prepend(n,m,b);
+                      $(box).addClass("add");  
+                      $("span").addClass("sp");
+
+                      $(b).click(function(){
+                          $(box).remove();  
+                     });   
+                  }
+                 else{
+                     alert("不可为空");
+                 } 
+               });
+            });
+        </script>
+    <!--导航条-->
+        <nav class="navbar navbar-fault header"  id="homepagenav" role="navigation">
+            <!--container-fluid可以随窗口变化-->
+        <div class="container-fluid">     
+              <ul class="nav navbar-nav  nav-pills"><!--navbar设置nav元素为导航条组件-->
+                <!--navbar-brand——设置导航条组件内的品牌图标 图片太大 位置会走到下面去 所以不添加-->
+                    <li ><a href="/shouye" class="logo"><img src="public\img\logo.png"></a></li>
+                    <li><a href="/all" class="info">全部商品</a></li>
+                    <!--下拉导航栏-->
+                    <li class="dropdown">
+                        <a href="/zixun" class="dropdown-toggle info " data-toggle="dropdown"><!--datatoggle为了表明下拉下面的下拉菜单为了dropdown服务-->
+                           咨询频道
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li ><a href="/zixun">知识科普</a></li>
+                            <li class="divider"></li> <!--下拉菜单分割线-->
+                            <li><a href="/clock">一起来讨论</a></li>
+                        </ul>
+                    </li>
+                          <li><a href="/guanyu" class="info">关于我们</a></li>
+
+                    <!--搜索框-->
+                    <li>
+                        <form  class="navbar-form navbar-right info" style="margin-top:25px;margin-left:80px;" role="search">
+                     <div class="form-group">
+                    <input type="text" placeholder="Search"  class="form-control"/>
+                     <!--button按钮样式-->
+                      <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-search"></span> 
+                      </button>
+                       </form>
+                    </div>
+                    </li>
+                  <!--搜索框-->
+                  <li class="tixing" ><a href="homepage.html" ><img src="public\img\homeregis.png"></a></li>
+                  <li  class="tixing" ><a href="homepage.html" style="margin-left: 0px;"><img src="public\img\homecart.png"></a></li>
+                </ul>
+        </div>
+        <div>   
+            </div>
+        </nav>
+
+       <div class="row">
+           <div class="col-md-12"><img src="public\img\wall.png"></div>
+       </div>
+
+       <div class="row col-md-offset-1 col-lg-offset-4col-xl-offset-4 ">
+            <div id="box1" >
+                    昵称：<input type="text" id="name">  
+                </div> 
+                <div id="box2">
+                    留言：<textarea id="message" cols="40" rows="5"></textarea>
+                </div>
+                <br/><br/>
+                <div id="btn">
+                        <button type="button" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-ok-sign"></span> 
+                          </button>
+                </div>
+       </div>
+
+
+       
+
+    <!--导航条-->    
+   
+    <!--精选热门pd-->
+    <!--回到顶部-->
+    <a class="btn btn-default " href="#" role="button" style="position:fixed;right:0;bottom:0;background: rgb(187,29,57)">
+        <!--BOOTSTRAP自带样式-->
+        <span class="glyphicon glyphicon-chevron-up" style="color:#fff;"></span>
+            </a>
+    <footer>
+            <img src="public\img\footer1.png"></div>
+    </footer>
+    </body>
+</html>
+

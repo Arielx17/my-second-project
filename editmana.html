@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>商品管理</title>
+        <link rel="stylesheet" href="public/css/work.css" type="text/css">
+        <style type="text/css">
+        .container
+        {
+            height: 750px;
+            width: auto;
+        }
+        .left
+        {
+            height: 750px;
+            width: 10%;
+            position:relative;
+            background-color: rgb(187,29,57);
+            float: left;
+        }
+        .logo
+        {
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin-left: 25px;
+            margin-top: 20%;
+            clear: both;
+        }
+        #info
+        {
+            height:10%;
+            width:90%;
+            margin-top:50%;
+            margin-left: -20%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:0px 15%;
+            background-color: rgb(187,29,57);
+            border-radius: 11px;
+            list-style:none;
+            clear: both;
+        }
+        #buc
+        {
+            height:10%;
+            width:90%;
+            margin-left: -3%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:7px 15%;
+            background-color:rgb(187,29,57);
+            list-style:none;
+            clear: both;
+        }
+        #triangle {
+			/* 字后面的三角形 */
+            height: 20px;
+            width: 20px;
+            margin-top: -27%;
+            margin-right: -10%;
+            float: right;
+            background: url("public/img/右三角形.png");
+            background-repeat: no-repeat;
+            clear: both;
+        }
+        #info a{
+            font-size:17px;
+            font-weight: bold;
+            color:#fff;
+            float: left;
+            margin-left: -15%;
+            text-decoration:none;
+        }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script>
+            $("#triangle").hide();
+            $(document).ready(function(){
+                    var url = location.href.substring(location.href.lastIndexOf("/")+1,location.href.length);
+                    $("#menu").find("a[href='" + url + "']").parent().css({"background-color":"rgb(117,22,43)"}).parent().css({"background-color":"rgb(117,22,43)"});
+                    $("#triangle").show();
+                $.get("/showgoods",function(data,status){
+                    var goods = JSON.parse(data);
+                    for(var i=0; i<goods.length; i++)
+                    {
+                        var food1 = $("<div></div>").addClass("food1");
+                        var img = $("<a href='goods?goodsId=" + goods[i].goodsId + "'>" + '<img width="100%" src="public/img/food.png">' + "</a>");
+                        var ptext=$("<p>"+goods[i].goodsName+"</p>").addClass("ptext");
+                        var fmoney=$("<p>"+"￥"+goods[i].goodsPrice.toFixed(2) +"</p>").addClass("pmoney");
+                        var edit=$("<a href='goodsdetail?goodsId=" + goods[i].goodsId + "'>" + '<p class="detail">编辑商品</p>' + "</a>");
+                        var deleteg=$("<button id=' " + goods[i].goodsId + "'>删除</button>").addClass("cart");
+                        deleteg.click(function(){
+                            if(confirm("确定删除?"))
+                            {
+                                $.get("/delete?goodsId="+$(this).attr("id"),function(data,status){ 
+                                    var result = JSON.parse(data);//将JSON字符串转为一个对象
+                                    if(result.affectedRows > 0)
+                                    {
+                                        alert('删除成功');
+                                        location.reload();
+                                    }
+                                });
+                            }
+                        });
+                        food1.append(img,ptext,fmoney,edit,deleteg);
+                        $(".right1").prepend(food1);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <div id="menu" class="left">
+            <a href="/shouye"><div class="logo"><img width="110px" src="public/img/logo1.png"></div></a>
+            <ul>
+                <li id="info"><div id="buc"><a href="userdata.html">用户数据</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="ordermana.html">订单管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="usermana.html">用户管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="editmana.html">商品管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="#">资讯发布</a><div id="triangle"></div></div></li>
+            </ul>
+        </div>
+        <div class="right1">
+            <a href="add"><p class="addgoods">＋</p></a>
+        </div>
+    </div>
+    </body>
+</html> 

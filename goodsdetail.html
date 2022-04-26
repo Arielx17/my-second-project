@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="public/css/work.css"  type="text/css">    
+    <style type="text/css"></style>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    function GetRequest() {
+        var url = decodeURI(location.search); 
+        //location.search：截取问号（包括问号）后面的网址
+        //decodeURI：解码url，即url中不会出现%20（空格）这样的字符，但？，=，/，#这些不能被解码，可以用decodeURLComponent函数
+        var theRequest = new Object();//构造函数创建一个对象包装器
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);//抽取从下标1开始的字符串
+            strs = str.split("&");
+            for(var i = 0; i < strs.length; i ++) {
+                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+            }
+        }
+        return theRequest;
+    }
+    $(document).ready(function(){
+        var Request = GetRequest();
+        var goodsId = Request["goodsId"];
+        $.get("/getdetail?goodsId="+goodsId,function(data,status){
+            var goods = JSON.parse(data);
+            var img = $('<img height="600px" src="public/img/pic1.png">');
+            var fdetail=$("<div></div>").addClass("fdetail");
+            var tname=$("<p>"+goods[0].goodsName+"</p>").addClass("tdetail");
+            var tmoney=$("<p>"+"￥"+goods[0].goodsPrice.toFixed(2) +"</p>").addClass("tdetail");
+            var gray=$("<div>数量</div>").addClass("gray");
+            var ar=$('<div><input id="reduce" type="button" value="-" /><input id="num" type="text" value="1" /><input id="add" type="button" value="+" /></div>').addClass("ar");
+            var cart=$("<button id=" + goodsId + "><img class='pcart1' src='public/img/cart.png'><span>加入购物车</span></button>").addClass("cart1");
+            var gray1=$("<div>"+goods[0].goodsInfo+"</div>").addClass("gray1");
+            gray.append(ar,cart);
+            fdetail.append(tname,tmoney,gray,gray1);
+            $(".detail1").append(img,fdetail); 
+            //加入购物车
+            var a="#"+goodsId;
+            $(a).click(function(){
+                $.post("addcart",
+                {
+                    id:goodsId,
+                    num:$("#num").val()
+                },
+                function(data,status){
+                    var result = JSON.parse(data);
+                    if(result.affectedRows > 0)
+                    {
+                        alert('已加入购物车');
+                        location.reload();
+                    }
+                    else
+                    {
+                        alert('加入失败');
+                    }
+                })
+            })
+            //增减框
+            var n = $("#num");
+            $('#reduce').attr('disabled',true);//初始值为1 减号失效
+            $("#add").click(function(){ 
+                n.val(Math.abs(parseInt(n.val()))+1);//parseInt解析字符串，转化为整数
+                if (parseInt(n.val())!=1){
+                    $('#reduce').attr('disabled',false);
+                };
+            }) 
+            $("#reduce").click(function(){
+                n.val(Math.abs(parseInt(n.val()))-1);
+                if (parseInt(n.val())==1){
+                    $('#reduce').attr('disabled',true);
+                };
+            })
+        });
+    });
+    </script> 
+</head>
+<body>
+      <div class="container">
+          <ul class="header">
+            <li class="logo"><a href="/shouye"><img src="public/img/logo1.png"></a></li>
+              <li class="info"><a href="/all">全部商品</a></li>
+              <li class="info"><a href="/zixun">咨询频道</a></li>
+              <li class="info"><a href="/guanyu">关于我们</a></li>
+              <div class="right">
+                <li class="tixing">
+                    <div class="triangle1"></div>
+                    <div class="pic"><a href="/self"><img src="public\img\登录.png"></a></div>
+                    <div class="triangle2"></div>
+                </li>
+                <li class="tixing">
+                    <div class="triangle1"></div>                   
+                    <div class="pic"><a href="/car"><img src="public\img\购物车.png"></a></div>
+                    <div class="triangle2"></div>
+                </li>
+                </div>
+          </ul>
+          <div class="middle">
+              <img class="products" src="public\img\products.png">
+              <p class="all">商品主页</p>
+              <div class="line"></div>
+              <div class="detail1"></div>
+              <img class="products" src="public/img/products.png">
+              <p class="all">商品详情</p>
+              <div class="line"></div>
+          </div>
+          <div class="footer">
+            <img src="public/img/footer.png">
+            <div class="rfooter">
+                <img class="lfooter" src="public/img/logo1.png">
+            </div>logo
+          </div>
+      </div>
+</body>
+</html>

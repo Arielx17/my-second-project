@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>商品管理</title>
+        <link rel="stylesheet" href="public/css/work.css" type="text/css">
+        <style type="text/css">
+        .container
+        {
+            height: 750px;
+            width: auto;
+            background-color: rgb(232,232,232);  
+        }
+        .left
+        {
+            height: 750px;
+            width: 10%;
+            position:relative;
+            background-color: rgb(187,29,57);
+            float: left;
+        }
+        .logo
+        {
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin-left: 25px;
+            margin-top: 20%;
+            clear: both;
+        }
+        #info
+        {
+            height:10%;
+            width:90%;
+            margin-top:50%;
+            margin-left: -20%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:0px 15%;
+            background-color: rgb(187,29,57);
+            border-radius: 11px;
+            list-style:none;
+            clear: both;
+        }
+        #buc
+        {
+            height:10%;
+            width:90%;
+            margin-left: -3%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:7px 15%;
+            background-color:rgb(187,29,57);
+            list-style:none;
+            clear: both;
+        }
+        #triangle {
+			/* 字后面的三角形 */
+            height: 20px;
+            width: 20px;
+            margin-top: -27%;
+            margin-right: -10%;
+            float: right;
+            background: url("public/img/右三角形.png");
+            background-repeat: no-repeat;
+            clear: both;
+        }
+        #info a{
+            font-size:17px;
+            font-weight: bold;
+            color:#fff;
+            float: left;
+            margin-left: -15%;
+            text-decoration:none;
+        }
+        .add {
+            height: 40px;
+            width: 90px;
+            background-color: white;
+            color: #858585;
+            text-align: center;
+            float: left;
+            border-radius: 5px;
+            border: 2px solid #858585;
+            margin-top: -31px;
+            margin-right: 1%;
+            clear: both;
+            font-size: 17px;
+        }
+        .update {
+            height: 40px;
+            width: 90px;
+            background-color: white;
+            color: #858585;
+            text-align: center;
+            float: left;
+            border-radius: 5px;
+            border: 2px solid #858585;
+            margin-top: -31px;
+            margin-right: 1%;
+            clear: both;
+            font-size: 17px;
+        }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script>
+            function GetRequest() {
+                var url = decodeURI(location.search); 
+                //location.search：截取问号（包括问号）后面的网址
+                //decodeURI：解码url，即url中不会出现%20（空格）这样的字符，但？，=，/，#这些不能被解码，可以用decodeURLComponent函数
+                var theRequest = new Object();//构造函数创建一个对象包装器
+                if (url.indexOf("?") != -1) {
+                    $("button").addClass("update");
+                    var str = url.substr(1);//抽取从下标1开始的字符串
+                    strs = str.split("&");
+                    for(var i = 0; i < strs.length; i ++) {
+                            theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                    }
+                }
+                else{
+                    $("button").addClass("add");
+                }
+                return theRequest;
+            }
+            $("#triangle").hide();
+            $(document).ready(function(){
+                var url = location.href.substring(location.href.lastIndexOf("/")+1,location.href.length);
+                $("#menu").find("a[href='" + url + "']").parent().css({"background-color":"rgb(117,22,43)"}).parent().css({"background-color":"rgb(117,22,43)"});
+                $("#triangle").show();
+                var Request = GetRequest();
+                var goodsId = Request["goodsId"];
+                $.get("/getdetail?goodsId="+goodsId,function(data,status){
+                    var goods = JSON.parse(data);
+                    $("#name").val(goods[0].goodsName);
+                    $("#price").val(goods[0].goodsPrice);
+                    $("#stock").val(goods[0].goodsStock);
+                    $("#infom").val(goods[0].goodsInfo);
+                });
+                $(".add").click(function() {
+                    $.post("insertgoods",
+                    {
+                        name:$("#name").val(),
+                        price:$("#price").val(),
+                        stock:$("#stock").val(),
+                        info:$("#infom").val()
+                    },
+                    function(data,status){
+                        var result = JSON.parse(data);
+                        if(result.insertId > 0)
+                        {
+                            alert('发布成功');
+                            location.reload();
+                        }
+                        else
+                        {
+                            alert('发布失败');
+                        }
+                    });
+                });
+                $(".update").click(function(){
+                    $.post("updategoods",
+                    {
+                        name:$("#name").val(),
+                        price:$("#price").val(),
+                        stock:$("#stock").val(),
+                        info:$("#infom").val(),
+                        id:goodsId
+                    },
+                    function(data,status){
+                        var result = JSON.parse(data);
+                        if(result.affectedRows > 0)
+                        {
+                            alert('更新成功');
+                            location.reload();
+                        }
+                        else
+                        {
+                            alert('更新失败');
+                        }
+                    })
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <div id="menu" class="left">
+            <a href="/shouye"><div class="logo"><img width="110px" src="public/img/logo1.png"></div></a>
+            <ul>
+                <li id="info"><div id="buc"><a href="userdata.html">用户数据</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="ordermana.html">订单管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="usermana.html">用户管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="editmana.html">商品管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="#">资讯发布</a><div id="triangle"></div></div></li>
+            </ul>
+        </div>
+        <div class="right2">
+            <div class="gtext"><span>商品名称</span></br><input class="edittext" id="name"></div>
+            <div class="gtext"><span>价格</span></br><input class="edittext" id="price"></div>
+            <div class="gtext"><span>库存</span></br><input class="edittext" id="stock"></div>
+            <div class="gtext"><span>商品信息</span></br><input class="edittext" id="infom"></div></br>
+            <button>发布商品</button>
+        </div>
+    </div>
+    </body>
+</html> 

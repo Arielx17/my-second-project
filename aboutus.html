@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>关于我们</title>
+        <!--下方什么viewport wid啥的一定要添加-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--引入bootstrap-->
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+       
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="public/css/aboutus.css"></link>
+
+        <script type="text/javascript">
+            $().ready(function(){
+                $(".titlebox li ").click(function(){
+                    var _index =$(this).index();
+                    $(".cbox>div").eq(_index).show().siblings().hide();
+                    $(this).addClass("change").siblings().removeClass("change")
+                })
+            })
+        </script>
+
+
+
+    </head>
+    <body data-spy="scroll" data-target="#homepagenav">
+        <script>
+
+        </script>
+    <!--导航条-->
+        <nav class="navbar navbar-fault header"  id="homepagenav" role="navigation">
+            <!--container-fluid可以随窗口变化-->
+        <div class="container-fluid">     
+              <ul class="nav navbar-nav  nav-pills"><!--navbar设置nav元素为导航条组件-->
+                <!--navbar-brand——设置导航条组件内的品牌图标 图片太大 位置会走到下面去 所以不添加-->
+                    <li ><a href="/shouye" class="logo"><img src="public\img\logo.png"></a></li>
+                    <li><a href="/all" class="info">全部商品</a></li>
+                    <!--下拉导航栏-->
+                    <li class="dropdown">
+                        <a href="/zixun" class="dropdown-toggle info " data-toggle="dropdown"><!--datatoggle为了表明下拉下面的下拉菜单为了dropdown服务-->
+                           咨询频道
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li ><a href="/zixun">知识科普</a></li>
+                            <li class="divider"></li> <!--下拉菜单分割线-->
+                            <li><a href="/clock">一起来讨论</a></li>
+                        </ul>
+                    </li>
+                          <li><a href="/guanyu" class="info">关于我们</a></li>
+
+                    <!--搜索框-->
+                    <li>
+                        <form  class="navbar-form navbar-right info" style="margin-top:25px;margin-left:80px;" role="search">
+                     <div class="form-group">
+                    <input type="text" placeholder="Search"  class="form-control"/>
+                     <!--button按钮样式-->
+                      <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-search"></span> 
+                      </button>
+                       </form>
+                    </div>
+                    </li>
+                  <!--搜索框-->
+                  <li class="tixing" ><a href="/shouye" ><img src="public\img\homeregis.png"></a></li>
+                  <li  class="tixing" ><a href="/shouye" style="margin-left: 0px;"><img src="public\img\homecart.png"></a></li>
+                </ul>
+        </div>
+        <div>   
+            </div>
+        </nav>
+    <!--导航条-->    
+        
+  
+   <div class="container">
+	<div class="row">
+         <!--侧边导航条-->
+		<div class="col-md-2">
+            <!--nav stacked创建垂直的-->
+			<ul class="nav nav-pills nav-stacked titlebox text-center">
+				
+                   <li class="active ">
+                    <li><a href="#" >关于我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                   </li>
+			</ul>
+        </div>
+        <!--侧边导航条-->
+        <div class="cbox">
+        <div class="col-md-10" id="aboutbox"></div>
+        <div class="col-md-10" id="aboutbox">
+            <h1 class="text-center">Eat Fit 健康饮食</h1>
+            <p class="text-center">
+                    <br/>
+                    秉承“为大家提供更优质、更安全、更健康、更美味的食品”的信念，<br/><br/>
+                    我们始终相信饮食与健康之间的积极关系，我们提出 “Easy Health, Easy Life” 的生活理念，<br/><br/>
+                    帮助用户在实践健康生活的过程中做出更聪明的选择，引领轻松愉悦的健康生活方式。<br/><br/>                    
+            </p>
+            <!--时间轴-->
+            <div class="about2">
+                    <div class="wrapper clearfix-time">
+                        <div class="tit">
+                            <h5 class="f24">发展历程</h5>
+                        </div>
+                        <ul class="clearfix-time">
+                            <li>
+                                <h4 class="f30">2020</h4>
+                                <span class="span">Jun.</span>
+                                <p class="f14">成功上线！</p>
+                            </li>
+                            <li>
+                                <h4 class="f30">2020</h4>
+                                <span class="span">May.</span>
+                                <p class="f14">成员讨论</p>
+                            </li>
+                            <li>
+                                <h4 class="f30">2020</h4>
+                                <p class="f14">学习学习</p>
+                            </li>
+                   
+                            <li>
+                                <h4 class="f30">2020</h4>
+                                <span class="span">Jan.</span>
+                                <p class="f14">新冠疫情</p>
+                            </li>
+                            <li>
+                                <h4 class="f30">2000</h4>
+                                <p class="f14">成员出生</p>
+                            </li>
+                        </ul>
+                     
+                    </div>
+                </div>
+        </div>
+        <!--留言盒-->
+        <div class="col-md-10 col-md-offset-3 col-lg-offset-4col-xl-offset-4" style="top:-80px;" >
+                <div class="contact-box text-center">
+                        <form id="ajax-contact" action="contact.php" method="post">
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="姓名*" required>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email*" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="subject" name="subject" placeholder="标题">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" name="message" rows="10" placeholder="留言内容*" required></textarea>
+                            </div>
+                            <button type="submit">提 交</button>
+                            <div id="form-messages"></div>
+                        </form>
+                    </div>
+        </div>
+
+
+
+
+        <div class="col-md-10 text-center col-md-offset-3 col-lg-offset-4col-xl-offset-4" style="top:-100px;">
+             <h2 class="text-center">————— 校园招聘 —————</h2>
+             <img   src="public/img/emad.png">
+             <h2 class="text-center">————— Eat Fit文化 —————</h2>
+             <p><h3>公司理念</h3> 求真，求善，求美<br/>
+
+                   <h3>公司使命</h3>  提供更安全、更健康、更美味的食品<br/>
+                    
+                    <h3>招聘原则</h3> 成熟，但保持年轻；自主，但高度自律；目标远大，但脚踏实地<br/>
+                    
+            </p>
+             <h2 class="text-center">————— 福利待遇 —————</h2>
+             <p>好吃好住 养猪地</p>
+
+
+        </div>
+        </div>
+	</div>
+    </div>
+   
+    
+
+   
+        <!--BOOTSTRAP自带样式-->
+        <span class="glyphicon glyphicon-chevron-up" style="color:#fff;"></span>
+            </a>
+    <footer>
+            <img src="public\img\footer1.png"></div>
+    </footer>
+    </body>
+</html>
+
