@@ -1,2 +1,2 @@
 # my-second-project
-html + css + JavaScript + bootstrap
+html + css + JavaScript + bootstrap + MySQL
