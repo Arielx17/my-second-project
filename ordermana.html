@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>订单管理</title>
+        <link href="public/css/ordermana.css" rel="stylesheet" media="all" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script>
+            $("#triangle").hide();
+            $(document).ready(function(){
+                var url = location.href.substring(
+                    location.href.lastIndexOf("/")+1,location.href.length);
+                    $("#menu").find("a[href='" + url + "']").parent().css({"background-color":"rgb(117,22,43)"}).parent().css({"background-color":"rgb(117,22,43)"});
+                    $("#triangle").show();
+
+                    $.get("/get_ordermana",function(data,status){
+                    var obj = JSON.parse(data);
+                    for(var i = 0 ; i < obj.length ; i++)
+                    {
+                        var userName = obj[i].userName;
+                        var userphone = obj[i].userPhone;
+                        var useradress = obj[i].userAdress;
+                        var ordergoods = obj[i].orderGoods;
+                        var orderid = obj[i].orderId;
+                        var s = $("<tr><td class='td2'>" + userName + "</td><td class='td1'>" + userphone + "</td><td class='td1'>" + useradress + "</td><td class='td1'>" + ordergoods + "</td><td class='td2'>" + "<div class='btnk'><button type='button' class='btn1' + id=" + orderid + ">删除</button>" + "<button type='button' class='btn2' id=" + orderid + ">修改</button>" + "</div>" +"</td></tr>");
+                        $("#add").append(s);
+                    }
+                    //删除
+                    $(".btn1").click(function(){
+                        if(confirm("确定删除?"))
+                            {
+                                $.get("/delete_ordermana?id="+$(this).attr("id"),function(data,status){ 
+                                    var result = JSON.parse(data);
+                                    if(result.affectedRows > 0)
+                                        {
+                                            alert('删除成功');
+                                            location.reload();
+                                        }
+                                });
+                            }
+                    });
+                     //更新
+                   $(function(){
+                        login = {};
+
+                        let mid_id = null;
+
+                        login.openLogin = function(){
+                            $('.btn2').click(function(){
+                                $('.login').show();
+                                $('.login-bg').show();
+                                mid_id = this.id;
+                            });
+                        };
+
+                        login.closeLogin = function(){
+                            $('.close-login').click(function(){
+                                $('.login').hide();
+                                $('.login-bg').hide();
+                            });
+                        };
+
+                        login.loginForm = function(){
+                            $("#login-button-submit").click(function(){
+                                
+
+                                var u_name = $("#username");
+                                var u_nameValue = $("#username").val();
+                                var u_pho = $("#userphone");
+                                var u_phoValue = $("#userphone").val();
+                                var u_adr = $("#useradress");
+                                var u_adrValue = $("#useradress").val();
+                                var u_good = $("#ordergoods");
+                                var u_goodValue = $("#ordergoods").val();
+
+                                if(u_nameValue == ""){
+                                    alert("收件名不能为空");
+                                    u_name.focus();
+                                    return false;
+                                }
+                                else if(u_phoValue == ""){
+                                    alert("收件人电话不能为空");
+                                    u_pho.focus();
+                                    return false;
+                                }
+                                else if(u_adrValue == ""){
+                                    alert("收件人地址不能为空");
+                                    u_adr.focus();
+                                    return false;
+                                }
+                                else if(u_goodValue == ""){
+                                    alert("商品不能为空");
+                                    u_good.focus();
+                                    return false;
+                                }
+
+                                $.post("/update_ordermana",
+                                {
+                                    name:u_nameValue,
+                                    pho:u_phoValue,
+                                    adr:u_adrValue,
+                                    good:u_goodValue,
+                                    id: mid_id
+                                },
+
+                                function(data,status){
+                                    var result = JSON.parse(data);
+                                    
+                                    if(result.affectedRows>0){
+                                        alert("修改成功");
+                                        location.reload();
+                                        setTimeout(function(){
+                                            $('.login').hide();
+                                            $('.login-bg').hide();
+                                            $('.list-input').val('');
+                                        },2000);
+                                    }
+                                }
+                                )
+
+                            });
+                        };//login.loginForm
+                        login.run = function(){
+                            this.closeLogin();
+                            this.openLogin();
+                            this.loginForm();
+                        };
+                        login.run();
+
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <div id="menu" class="left">
+            <a href="/shouye"><div class="logo"><img src="public/img/logo2.png"></div></a>
+            <ul>
+                <li id="info"><div id="buc"><a href="userdata.html">用户数据</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="ordermana.html">订单管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="usermana.html">用户管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="editmana.html">商品管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="#">资讯发布</a><div id="triangle"></div></div></li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="layup">
+                <div id="find">
+                    <input type="search" class="finds" placeholder="搜索用户名">
+                    <button class="findimg"></button>
+                </div>
+            </div>
+            <div class="layer">
+                <table class="bordered">
+                    <thead>
+                        <tr>
+                            <th class="th2">收货人姓名</th>
+                            <th class="th1">收货人电话</th>
+                            <th class="th1">收货人地址</th>
+                            <th class="th1">收货人订单</th>
+                            <th class="th2">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="add">
+                        <tr>
+                        </tr>	    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="login">
+            <div class="login-title">资料填写<span><a href="javascript:void(0);" class="close-login">关闭</a></span></div>
+            <div class="login-input-content">
+                <div class="login-input">
+                    <label>收货人姓名</label>
+                    <input type="text" placeholder="请输入收件人姓名"  name="info[username]" id="username" class="list-input"/>
+                </div>
+                <div class="login-input">
+                    <label>收货人电话</label>
+                    <input type="text" placeholder="请输入收件人电话" name="info[userphone]" id="userphone" class="list-input"/>
+                </div>
+                <div class="login-input">
+                    <label>收货人地址</label>
+                    <input type="text" placeholder="请输入收货地址" name="info[useradress]" id="useradress" class="list-input"/>
+                </div>
+                <div class="login-input">
+                    <label>收货人订单</label>
+                    <input type="text" placeholder="请输入商品" name="info[ordergoods]" id="ordergoods" class="list-input"/>
+                </div>
+            </div>
+            <div class="login-button"><a href="javascript:void(0);" id="login-button-submit" disabled=false>提交</a></div>
+        </div>
+        
+        <div class="login-bg"></div>
+        </div>
+    </div>
+    </body>
+</html>

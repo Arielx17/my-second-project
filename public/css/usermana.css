@@ -1,0 +1,433 @@
+        .container
+        {
+            height: 750px;
+            width: auto; 
+            background-color: rgb(232,232,232);  
+        }
+        .left
+        {
+            height: 750px;
+            width: 10%;
+            position:relative;
+            background-color: rgb(187,29,57);
+        }
+        .logo
+        {
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin-left: 25px;
+            margin-top: 20%;
+            clear: both;
+        }
+        #info
+        {
+            height:10%;
+            width:90%;
+            margin-top:50%;
+            margin-left: -20%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:0px 15%;
+            background-color: rgb(187,29,57);
+            border-radius: 11px;
+            list-style:none;
+            clear: both;
+        }
+        #buc
+        {
+            height:10%;
+            width:90%;
+            margin-left: -3%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:7px 15%;
+            background-color:rgb(187,29,57);
+            list-style:none;
+            clear: both;
+        }
+        #triangle {
+			/* 字后面的三角形 */
+            height: 20px;
+            width: 20px;
+            margin-top: -27%;
+            margin-right: -10%;
+            float: right;
+            background: url("/public/img/triangle.png");
+            background-repeat: no-repeat;
+            clear: both;
+        }
+        #info a{
+            font-size:17px;
+            font-weight: bold;
+            color:#fff;
+            float: left;
+            margin-left: -15%;
+            text-decoration:none;
+        }
+        .right
+        {
+            height: 750px;
+            width: 90%;
+            position: relative;
+            background-color: white;
+            margin-top: -50%;
+            margin-right: 0%;
+            float:right;
+            clear: both;
+        }
+        .layup
+        {
+            height: 5%;
+            width: 80%;
+            margin-top: 20px;
+            margin-left: 5%;
+        }
+        #find
+        {
+            height: 30px;
+            width: 250px;
+            float: left;
+            border: solid rgb(233,233,233) 2px;
+            border-radius: 11px;
+            margin-top: 0px;
+            margin-left: 0%;
+            clear: both;
+        }
+
+        .finds
+        {
+            height: 30px;
+            width: 210px;
+            float: left;
+            border: 0px;
+            margin-top: 0%;
+            margin-left: 2%;
+            clear: both;
+        }
+        .findimg
+        {
+            height: 30px;
+            width: 30px;
+            background: url("/public/img/search.png");
+            float: right;
+            margin-top: -30px;
+            margin-right: 0%;
+            border: 0px;
+            clear: both;
+        }
+        .tjia
+        {
+            height: 30px;
+            width: 55px;
+            border-radius: 5px;
+            background-color: rgb(23,132,254);
+            color: white;
+            text-align: center;
+            float: right;
+            border: 0px;
+            margin-top: -31px;
+            margin-right: 1%;
+            clear: both;
+        }
+        .layer
+        {
+            height: 90%;
+            width: 80%;
+            background: white;
+            margin-top: 10px;
+            margin-left: 5%;
+            float: left;
+            clear: both;
+        }
+        .demo 
+        {
+			width: 600px;
+			margin: 40px auto;
+			font-family: 'trebuchet MS', 'Lucida sans', Arial;
+			font-size: 14px;
+			color: #444;
+		}
+
+		table 
+        {
+			border-spacing: 0;
+			width: 100%;
+		}
+
+		.bordered .highlight,
+		.bordered tr:hover 
+        {
+			background: #fbf8e9;		
+		}
+			
+        .bordered td, 
+		.bordered th 
+        {
+			border-left: 1px solid #ccc;
+			border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+			padding: 10px;
+			text-align: left;
+		}
+			
+        .bordered th 
+        {
+			background-color: rgba(240, 240, 240, 0.87);
+		}
+
+        .th1,
+        .td1
+        {
+            width: 30%;
+        }
+
+        .th2,
+        .td2
+        {
+            width: 10%;
+        }
+        .btnk
+        {
+            padding: 5% 2.5%;
+        }
+
+        .btn1
+        {
+            background-color: white;
+            color: rgb(142,187,229);
+            border: 0px;
+        }
+
+        .btn2
+        {
+            background-color: white;
+            color: rgb(142,187,229);
+            border: 0px;
+        }
+
+        .login-header
+        {
+            width:100%;
+            text-align:center;
+            height:30px;
+            font-size:24px;
+            line-height:30px;
+        }
+        .login
+        {
+            width:500px;
+            position:fixed;
+            border:#ebebeb solid 1px;
+            height:380px;
+            top:50%;
+            left:50%;
+            display:none;
+            background:#ffffff;
+            box-shadow:0px 0px 20px #ddd;
+            z-index:9999;
+            margin-left:-250px;
+            margin-top:-140px;
+        }
+        .login-title
+        {
+            width:100%;
+            margin:10px 0px 0px 0px;
+            text-align:center;
+            line-height:40px;
+            height:40px;
+            font-size:18px;
+            position:relative;
+        }
+        .login-title span
+        {
+            position:absolute;
+            font-size:12px;
+            right:-20px;
+            top:-30px;
+            background:#ffffff;
+            border:#ebebeb solid 1px;
+            width:40px;
+            height:40px;
+            border-radius:20px;
+        }
+        .login-title span a
+        {
+            display:block;
+        }
+        .login-input-content
+        {
+            margin-top:20px;
+        }
+        .login-input 
+        {
+            overflow:hidden;
+            margin:0px 0px 20px 0px;
+        }
+        .login-input label
+        {
+            float:left;
+            width:90px;
+            padding-right:10px;
+            text-align:right;
+            line-height:35px;
+            height:35px;
+            font-size:14px;
+        }
+        .login-input input.list-input
+        {
+            float:left;
+            line-height:35px;
+            height:35px;
+            width:350px;
+            border:#ebebeb 1px solid;
+            text-indent:5px;
+        }
+        .login-button
+        {
+            width:50%;
+            margin:30px auto 0px auto;
+            line-height:40px;
+            font-size:14px;
+            border:#ebebeb 1px solid;
+            text-align:center;
+        }
+        .login-button a
+        {
+            display:block;
+        }
+        .login-bg
+        {
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background:#ebebeb;
+            filter:alpha(opacity=30);
+            -moz-opacity:0.3;
+            -khtml-opacity:0.3;
+            opacity:0.3;
+            display:none;
+        }
+        a
+        {
+            text-decoration:none;
+            color:#000000;
+        }
+        .hlogin-header
+        {
+            width:100%;
+            text-align:center;
+            height:30px;
+            font-size:24px;
+            line-height:30px;
+        }
+        .hlogin
+        {
+            width:500px;
+            position:fixed;
+            border:#ebebeb solid 1px;
+            height:380px;
+            top:50%;
+            left:50%;
+            display:none;
+            background:#ffffff;
+            box-shadow:0px 0px 20px #ddd;
+            z-index:9999;
+            margin-left:-250px;
+            margin-top:-140px;
+        }
+        .hlogin-title
+        {
+            width:100%;
+            margin:10px 0px 0px 0px;
+            text-align:center;
+            line-height:40px;
+            height:40px;
+            font-size:18px;
+            position:relative;
+        }
+        .hlogin-title span
+        {
+            position:absolute;
+            font-size:12px;
+            right:-20px;
+            top:-30px;
+            background:#ffffff;
+            border:#ebebeb solid 1px;
+            width:40px;
+            height:40px;
+            border-radius:20px;
+        }
+        .hlogin-title span a
+        {
+            display:block;
+        }
+        .hlogin-input-content
+        {
+            margin-top:20px;
+        }
+        .hlogin-input 
+        {
+            overflow:hidden;
+            margin:0px 0px 20px 0px;
+        }
+        .hlogin-input label
+        {
+            float:left;
+            width:90px;
+            padding-right:10px;
+            text-align:right;
+            line-height:35px;
+            height:35px;
+            font-size:14px;
+        }
+        .hlogin-input input.list-input
+        {
+            float:left;
+            line-height:35px;
+            height:35px;
+            width:350px;
+            border:#ebebeb 1px solid;
+            text-indent:5px;
+        }
+        .hlogin-button
+        {
+            width:50%;
+            margin:30px auto 0px auto;
+            line-height:40px;
+            font-size:14px;
+            border:#ebebeb 1px solid;
+            text-align:center;
+        }
+        .hlogin-button a
+        {
+            display:block;
+        }
+        .hlogin-bg
+        {
+            width:100%;
+            height:100%;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background:#ebebeb;
+            filter:alpha(opacity=30);
+            -moz-opacity:0.3;
+            -khtml-opacity:0.3;
+            opacity:0.3;
+            display:none;
+        }
+        a
+        {
+            text-decoration:none;
+            color:#000000;
+        }

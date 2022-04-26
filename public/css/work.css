@@ -1,0 +1,324 @@
+.container{
+    margin:auto;
+    position: relative;
+}
+.header{
+    height:80px;
+    background-color:rgb(187,29,57);
+    padding-right: 80px;
+    position:relative;
+}
+.logo{
+    height:75px;
+    width:5%;
+    margin-right: 20%;
+    float:left;
+    list-style: none;
+}
+.info{
+    height:40px;
+    width:8%;
+    margin-right:2.5%;
+    float:left;
+    line-height:30px;
+    letter-spacing:5px;
+    text-align:center; 
+    cursor:pointer;
+    padding:25px 1.5%;
+    list-style:none;
+}
+.info a{
+    font-size:22px;
+    color:#fff;
+    text-decoration:none
+}
+.right{
+    width:300px;
+    height:40px;
+    float:right;
+    padding-right:6.5%;
+}
+.triangle1 {
+    /* 左下三角 */
+    width: 0;
+    height: 0;
+    border-right: 40px solid transparent;
+    border-bottom: 40px solid #bb1d39;
+    float:left;
+}
+.triangle2 {
+    /* 右下三角 */
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-bottom: 40px solid rgb(187,29,57);
+    float:left;
+}
+.tixing {
+    width: 140px;
+    height: 40px;
+    background-color:white;
+    list-style:none;
+    float:left;
+    position: relative;
+}
+.pic{
+    width: 60px;
+    height: 40px;
+    list-style:none;
+    float:left;
+    text-align: center;
+}
+.middle{
+    width: 100%;
+    padding-top:70px;
+    height: 3500px;
+}
+.products{
+    margin:0 45%;
+    height:95px;
+}
+.all{
+    width:165.5px;
+    margin:0 45.5%;
+    letter-spacing:4px;
+    font-size: 35px;
+    margin-top: -17px;
+    font-weight: bold;
+}
+.line{
+    margin:0 9%;
+    height: 50px;
+    border-bottom:1px solid #0000005b;
+}
+.menu{
+    width: 83%;
+    height: 60px;
+    padding: 15px 8.5%;
+    float: left;
+}
+.menu1{
+    border-radius: 13px;
+    background: #bb1d39;
+    padding: 7px; 
+    width: 100px;
+    height: 25px; 
+    float: left;
+    color: #fff;
+    text-align: center;
+    letter-spacing:5px;
+    margin-right: 27px;
+}
+.detail1{
+    margin: 70px 7%;
+    margin-bottom: 200px;
+}
+.fdetail{
+    float: right;
+    padding-right: 5%;
+    padding-left: 9%;
+    width: 40%;
+}
+.tdetail{
+    font-size: 34px;
+    letter-spacing: 5px;
+    width: 100%;
+    color: #3F3F3F;
+    margin: 14px 0;
+    float: left;
+}
+.gray{
+    width: 80%;
+    height: 170px;
+    background: #e0e0e086;
+    float: left;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 40px 10%;
+    font-size: 30px;
+}
+.food{
+    float: left;
+    margin: 0 5.5%;
+    width: 89%;
+}
+.food1{
+    margin: 70px 4%;
+    float: left;
+    width: 25%;
+}
+.ftext{
+    color: #bb1d39;
+    padding: 0 9%;
+    font-size: 20px;
+    font-weight: bold;
+    width: 82%;
+    letter-spacing: 2px;
+    margin-top: 40px;
+    margin-bottom: 0;
+    height: 53px;
+}
+.fmoney{
+    padding: 0 40%;
+    width: 20%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+.detail{
+    border-radius: 25px;
+    border:2px solid #bb1d39;
+    padding: 2%; 
+    width: 50%;
+    height: 25px; 
+    float: left;
+    color: #bb1d39;
+    text-align: center;
+    letter-spacing:8px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 22%;
+    margin-top: 7px;
+    margin-bottom: 0;
+}
+.cart{
+    border-radius: 25px;
+    background: #bb1d39;
+    border:2px solid #bb1d39;
+    padding: 0 2%; 
+    padding-top: 3px;
+    padding-bottom: 14px;
+    width: 54%;
+    height: 42px; 
+    float: left;
+    margin: 0 23%;
+    margin-top: 7px;
+    margin-bottom: 0;  
+    text-align: center;
+    line-height: 33px;
+    color: #fff;
+    letter-spacing:3px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.pcart{
+    height:23px;
+    vertical-align: middle;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+    height: 350px;
+}
+.rfooter{
+    width: 100%;
+    background: #bb1d39;
+    height: 300px;
+    margin-top: -30px;
+    position: relative;
+}
+.lfooter{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+#reduce,#add{
+    width: 45px;
+    height: 45px;
+    margin: 0;
+    float: left;
+}
+#num{
+    height: 41px;
+    width: 50px;
+    margin: 0;
+    float: left;
+    border: 1px solid;
+    border-right: 0px;
+    border-left: 0px;
+    text-align: center;
+    font-size: 20px;
+}
+.ar{
+    margin: 0;
+    margin-right: 120px;
+    height: 50px;
+    width: 150px;
+    float: right;
+}
+.cart1{
+    border-radius: 25px;
+    background: #bb1d39;
+    border:2px solid #bb1d39;
+    padding: 0 4%; 
+    padding-top: 17px;
+    padding-bottom: 8px;
+    width: 70%;
+    height: 85px; 
+    float: left;
+    margin: 0 11%;
+    margin-top: 35px;
+    margin-bottom: 0;  
+    text-align: center;
+    line-height: 33px;
+    color: #fff;
+    letter-spacing:3px;
+    font-weight: bold;
+    font-size: 35px;
+}
+.pcart1{
+    height:40px;
+    vertical-align: middle;
+}
+.gray1{
+    width: 78%;
+    height: 130px;
+    border:5px solid #e0e0e086;
+    float: left;
+    border-radius: 1px;
+    margin-top: 10px;
+    padding: 30px 10%;
+    font-size: 18px;
+    text-align: left;
+}
+.right1{
+    width: 90%;
+    height: 10%;
+    margin: 0;
+    float: left;
+    padding: 0;
+}
+.addgoods{
+    border-radius: 5px;
+    margin: 70px 4%;
+    float: left;
+    width: 25%;
+    height: 550px;
+    border: 5px dashed #cacaca;
+    text-align: center;
+    font-size: 150px;
+    line-height: 550px;
+    color: #cacaca;
+}
+.right2{
+    width: 70%;
+    height: 10%;
+    margin: 0;
+    float: left;
+    padding: 100px 10%;
+    font-size: 25px;
+    letter-spacing: 5px;
+    font-weight: 700;
+    color: #858585;
+}
+.edittext{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid #858585;
+    font-size: 22px;
+}
+.gtext{
+    margin: 40px 0;
+}

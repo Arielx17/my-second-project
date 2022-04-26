@@ -1,0 +1,51 @@
+.header{
+   
+    background-color:rgb(187,29,57);
+
+}
+ul.header{
+   
+    position: fixed;
+}
+.logo{
+  width:70px;
+  height: 70px;
+  padding: 0;
+}
+.info{
+    padding: 0px;
+    background-color:rgb(187,29,57);
+    font-size:22px;
+    color:#fff;
+    text-decoration:none;
+    margin-top:20px;
+    margin-left:100px; 
+}
+.tixing{
+    position: relative;
+    top:-15px;
+    right:-100px;
+}
+.homebtn{
+    background: #43423F;
+    font:#fff;
+    width:300px;
+    height: 30px;
+    margin-top: 100px;
+    border-radius: 15px;
+
+}
+
+.newpd{
+    margin-top:50px;
+    margin-bottom: 20px;
+}
+
+
+.pdfont{
+    
+}
+
+
+
+ 

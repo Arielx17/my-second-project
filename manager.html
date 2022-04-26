@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>管理员登录</title>
+        <style type="text/css">
+        .container
+        {
+            height: 750px;
+            width: auto;
+            background-color: rgb(232,232,232);  
+        }
+        .left
+        {
+            height: 750px;
+            width: 10%;
+            position:relative;
+            background-color: rgb(187,29,57);
+        }
+        .logo
+        {
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin-left: 25px;
+            margin-top: 20%;
+            clear: both;
+        }
+        #info
+        {
+            height:10%;
+            width:90%;
+            margin-top:50%;
+            margin-left: -20%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:0px 15%;
+            background-color: rgb(187,29,57);
+            border-radius: 11px;
+            list-style:none;
+            clear: both;
+        }
+        #buc
+        {
+            height:10%;
+            width:90%;
+            margin-left: -3%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:7px 15%;
+            background-color:rgb(187,29,57);
+            list-style:none;
+            clear: both;
+        }
+        #triangle {
+			/* 字后面的三角形 */
+            height: 20px;
+            width: 20px;
+            margin-top: -27%;
+            margin-right: -10%;
+            float: right;
+            background: url("/public/img/triangle.png");
+            background-repeat: no-repeat;
+            clear: both;
+        }
+        #info a{
+            font-size:17px;
+            font-weight: bold;
+            color:#fff;
+            float: left;
+            margin-left: -15%;
+            text-decoration:none;
+        }
+        #dlkuang
+        {
+            height: 400px;
+            width: 400px;
+            margin-top: -35%;
+            margin-left: 40%;
+            border-radius: 50px;
+            background-color: white;
+            position: relative;
+        }
+        .glyimg
+        {
+            height: 48px;
+            width: 48px;
+            margin-left: 170px;
+            margin-top: -93%;
+            float: left;
+            clear: both;
+        }
+        .glydl
+        {
+            font-size:17px;
+            font-weight: bold;
+            color:black;
+            margin-left: 150px;
+            margin-top: 10%;
+            text-decoration:none;
+        }
+        .text
+        {
+            margin-left: 20%;
+            margin-top: 5%;
+        }
+        #sign
+        {
+            height: 30px;
+            width: 130px;
+            margin-top: 65px;
+            margin-left: 130px;
+            text-align: center;
+            border: none;
+            border-radius: 11px;
+            background-color: rgb(187,29,57);
+        }
+        #sign a
+        {
+            font-size:17px;
+            color:#fff;
+            text-decoration:none;
+        }
+        </style>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script>
+            $("#triangle").hide();
+            $(document).ready(function(){
+                var url = location.href.substring(
+                    location.href.lastIndexOf("/")+1,location.href.length);
+                    $("#menu").find("a[href='" + url + "']").parent().css({"background-color":"rgb(117,22,43)"}).parent().css({"background-color":"rgb(117,22,43)"});
+                    $("#triangle").show();
+
+                $("#sign").click(function(){
+                    $.post("insert_manager",
+                    {
+                        name:$("#username").val(),
+                        pwd:$("#userpwd").val(),
+                        type:'管理员'
+                    },
+                    function(data,status){
+                        var result = JSON.parse(data);
+                        if(result.insertId>0)
+                        {
+                            alert('登录成功');
+                            window.location.href="userdata.html"
+                        }
+                        else{
+                            alert('登录失败');
+                        }
+                    })
+                })   
+            });
+        </script>
+    </head>
+    <body>
+    <div class="container">
+        <div id="menu" class="left">
+            <a href="/shouye"><div class="logo"><img src="public/img/logo2.png"></div></a>
+            <ul>
+                <li id="info"><div id="buc"><a href="userdata.html">用户数据</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="ordermana.html">订单管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="usermana.html">用户管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="editmana.html">商品管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="#">资讯发布</a><div id="triangle"></div></div></li>
+            </ul>
+        </div>
+        <div id="dlkuang" >
+            <div class="glyimg"><img src="/public/img/gly.png"></div><br><br> 
+            <div class="glydl">管理员登录</div>
+            <div class="text">账号&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="username" placeholder="请输入用户名"></div><br>
+            <div class="text">密码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" id="userpwd" placeholder="请输入密码"></div><br>
+            <button id="sign">登录</button>
+        </div> 
+    </div>
+    </body>
+</html>

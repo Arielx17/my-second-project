@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>用户数据</title>
+        <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+
+
+        <link href="public/css/userdata.css" rel="stylesheet" media="all" />
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script>
+            $("#triangle").hide();
+            $(document).ready(function(){
+                var url = location.href.substring(
+                    location.href.lastIndexOf("/")+1,location.href.length);
+                    $("#menu").find("a[href='" + url + "']").parent().css({"background-color":"rgb(117,22,43)"}).parent().css({"background-color":"rgb(117,22,43)"});
+                    $("#triangle").show();
+            });
+        </script>   
+         <script src="echarts.min.js"></script>
+         
+    </head>
+    <body>
+    <div class="container">
+        <div id="menu" class="left">
+            <a href="/shouye"><div class="logo"><img src="public/img/logo2.png"></div></a>
+            <ul>
+                <li id="info"><div id="buc"><a href="userdata.html">用户数据</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="ordermana.html">订单管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="usermana.html">用户管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="editmana.html">商品管理</a><div id="triangle"></div></div></li>
+                <li id="info"><div id="buc"><a href="#">资讯发布</a><div id="triangle"></div></div></li>
+            </ul>
+        </div>
+        <div class="right">
+            <div id="main" style="width: 600px;height:400px;"></div> 
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        //基于准备好的dom,初始化echarts示例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '商品日销售'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["鸡肉肠","鸡胸肉","纤维粉","沙拉酱","代餐粉","水果麦片"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        //使用刚指定的配置项和数据显示图表
+        myChart.setOption(option);
+    
+    </script>
+    </body>
+</html>

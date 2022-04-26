@@ -1,0 +1,84 @@
+.container
+        {
+            height: 750px;
+            width: auto;
+            background-color: rgb(232,232,232);  
+        }
+        .left
+        {
+            height: 750px;
+            width: 10%;
+            position:relative;
+            background-color: rgb(187,29,57);
+        }
+        .logo
+        {
+            height: 100px;
+            width: 100px;
+            float: left;
+            margin-left: 25px;
+            margin-top: 20%;
+            clear: both;
+        }
+        #info
+        {
+            height:10%;
+            width:90%;
+            margin-top:50%;
+            margin-left: -20%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:0px 15%;
+            background-color: rgb(187,29,57);
+            border-radius: 11px;
+            list-style:none;
+            clear: both;
+        }
+        #buc
+        {
+            height:10%;
+            width:90%;
+            margin-left: -3%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:7px 15%;
+            background-color:rgb(187,29,57);
+            list-style:none;
+            clear: both;
+        }
+        #triangle {
+			/* 字后面的三角形 */
+            height: 20px;
+            width: 20px;
+            margin-top: -27%;
+            margin-right: -10%;
+            float: right;
+            background: url("/public/img/triangle.png");
+            background-repeat: no-repeat;
+            clear: both;
+        }
+        #info a{
+            font-size:17px;
+            font-weight: bold;
+            color:#fff;
+            float: left;
+            margin-left: -15%;
+            text-decoration:none;
+        }
+        .right
+        {
+            height: 750px;
+            width: 90%;
+            position: relative;
+            background-color: white;
+            margin-top: -50%;
+            margin-right: 0%;
+            float:right;
+            clear: both;
+        }

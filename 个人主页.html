@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js">
+    </script>
+    <style type="text/css">
+        .container{
+            height:1700px;
+            margin:auto
+        }
+        .header{
+            height:80px;
+            background-color:rgb(187,29,57);
+            padding-right: 80px;
+            position:relative;
+        }
+        .logo{
+            height:75px;
+            width:5%;
+            margin-right: 20%;
+            float:left;
+            list-style: none;
+        }
+        .info{
+            height:40px;
+            width:8%;
+            margin-right:2.5%;
+            float:left;
+            line-height:30px;
+            letter-spacing:5px;
+            text-align:center; 
+            cursor:pointer;
+            padding:25px 1.5%;
+            list-style:none;
+        }
+        .info a{
+            font-size:22px;
+            color:#fff;
+            text-decoration:none
+        }
+        .right{
+            width:300px;
+            height:40px;
+            float:right;
+            padding-right:6.5%;
+        }
+        .triangle1 {
+			/* 左下三角 */
+			width: 0;
+			height: 0;
+    		border-right: 40px solid transparent;
+        	border-bottom: 40px solid #bb1d39;
+            float:left;
+        }
+        .triangle2 {
+			/* 右下三角 */
+			width: 0;
+			height: 0;
+			border-left: 40px solid transparent;
+            border-bottom: 40px solid rgb(187,29,57);
+            float:left;
+        }
+        .tixing {
+			width: 140px;
+            height: 40px;
+            background-color:white;
+            list-style:none;
+            float:left;
+            position: relative;
+        }
+        .pic{
+            width: 60px;
+            height: 40px;
+            list-style:none;
+            float:left;
+            text-align: center;
+        }
+        .body{
+           height:60%;
+          width:auto;
+
+       }
+        .title
+{
+    width:100%;
+    height:60px;
+    border-bottom:solid 2px;
+    font-size:30px;
+    color:rgb(187,29,57);
+    line-height:60px;
+    text-align: center;
+}
+.right1{
+    width:800px;
+    height:auto;
+    border:solid 1px rgb(187,29,57);
+    float:left;
+    margin-top:5%;
+    margin-left:28%;
+    background-color: rgb(247, 229, 229);
+}
+.rtitle
+{
+    width:700px;
+    height:80px;
+    margin-left:50px;
+    margin-right:50px;
+    border-bottom:solid 1px;
+    float:left;
+    line-height:80px;
+    text-align:center;
+    font-size:22px;
+    color:rgb(187,29,57)
+
+}
+.head
+{
+    width:100px;
+    height:100px;
+    border-radius:100px;
+    border:4px solid;
+    float:left;
+    margin-left:350px;
+    margin-top:30px
+}
+.info1
+{
+    width:auto;
+    height:50px;
+    font-size:25px;
+    color:rgb(187,29,57);
+    margin-left:47%;
+    margin-right:47%;
+    margin-top:20px;
+    float:left
+}
+.info2
+{
+    width:700px;
+    height:auto;
+    font-size:25px;
+    color:rgb(187,29,57);
+    text-align:center;
+    font-weight:bold;
+    margin-left:5%;
+    padding-top:2%;
+    float:left;
+    border-top:1px dotted rgb(187,29,57)
+}
+.info3{
+    width:auto;
+    height:auto;
+    font-size:25px;
+    color:rgb(187,29,57);
+    text-align:center;
+    font-weight:bold;
+    margin-left:5%;
+    padding-top:3%;
+    padding-bottom:3%;
+    float:left;
+    border-right:1px dotted rgb(187,29,57)
+}
+.btn{
+    width:60px;
+    height:auto;
+    margin-top:3%;
+    margin-left:5%;
+    float:left;
+}
+.btnClass{
+    border-radius: 5px;
+    background-color: rgb(187,29,57);
+    font-size: 15px;
+    color:white;
+    height:30px;
+    width:50px
+
+}
+.order{
+    width:50%;
+    height:auto;
+    font-size:20px;
+    color:rgb(85, 84, 84);
+    line-height:35px;
+    font-weight:lighter;
+    margin-left:5%;
+    margin-top:20px;
+    float:left
+}
+.footer{
+            width: 100%;
+            text-align: center;
+            height: 350px;
+        }
+        .rfooter{
+            width: 100%;
+            background: #bb1d39;
+            height: 300px;
+            margin-top: -30px;
+            position: relative;
+        }
+        .lfooter{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+       
+        </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="header">
+            <li class="logo"><a href="/shouye"><img src="public/img/logo1.png"></a></li>
+            <li class="info"><a href="/all">全部商品</a></li>
+            <li class="info"><a href="/zixun">咨询频道</a></li>
+            <li class="info"><a href="/guanyu">关于我们</a></li>
+            <div class="right">
+              <li class="tixing">
+                  <div class="triangle1"></div>
+                  <div class="pic"><a href="/self"><img src="public/img/登录.png"></a></div>
+                  <div class="triangle2"></div>
+              </li>
+              <li class="tixing">
+                  <div class="triangle1"></div>                   
+                  <div class="pic"><a href="/car"><img src="public/img/购物车.png"></a></div>
+                  <div class="triangle2"></div>
+              </li>
+              </div>
+        </ul>
+        <div class="body">
+                <div class="title">我的账号</div>
+                    <div class="right1">
+                        <div class="rtitle">个人主页</div>
+                        <img src="public/img/我的.png" class="head">
+                        <div class="info1"></div>
+                        <div class="info2">我的订单</div>
+                        <div class="info3" id="oName">
+                            <div class="info3" id="oPrice"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="clear"></div>
+                <div class="footer">
+                    <img src="public/img/footer.png">
+                    <div class="rfooter">
+                        <img class="lfooter" src="public/img/logo1.png">
+                    </div>
+                  </div>
+                  <script>
+                      $(document).ready(function(){
+                        $.get("/user",function(data,status){
+                            var user=JSON.parse(data);
+                            for(var i=0;i<user.length;i++){
+                                //$.get("/user?id="+$(this).attr("id"),function(data,status){ 
+                                var n=user[i].userName;
+                                if(i==1){
+                                    $(".info1").append(n);
+                                } 
+                             }   
+                             //})  
+                            }) 
+                                $.get("/addgoods",function(data,status){
+                                    var goods=JSON.parse(data);
+                                    for(var i=0;i<goods.length;i++){
+                                        var box1=$("<div></div>");
+                                        var box2=$("<div></div>");
+                                        var box3=$("<div></div>");
+                                        var a=goods[i].goodsName;
+                                        var b=$("<p>"+"￥"+goods[i].goodsPrice.toFixed(2)+"</p>");
+
+                                        box1.append(a);
+                                        $("#oName").append(box1);
+                                        $(box1).addClass("order");
+
+                                        $("#oPrice").append(b);
+                                        $(b).addClass("order");
+
+                                        //删除订单
+                       var btn =$("<button id='" + goods[i].goodsId + "'>删除</button>");
+                                btn.click(function(){
+                                if(confirm("确定删除?"))
+                                {
+                                    $.get("/deletegoods?id="+$(this).attr("id"),function(data,status){ 
+                                        var result = JSON.parse(data);
+                                        if(result.affectedRows > 0)
+                                        {
+                                            alert('删除成功');
+                                            location.reload();
+                                        }
+                                    });
+                                }
+                            });
+                 //打印删除按钮           
+                 box3.append(btn);
+                 btn.addClass("btnClass");
+                 $("#oName").append(box3);
+                 $(box3).addClass("btn");
+                                        
+                                    }
+                                     
+                                })
+                               
+                              
+                            
+                        
+                      })
+                  </script>
+                </body>
+                </html>
